@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../context/authContext";
+import { useLocation } from "react-router";
 
 export const LoginPage = () => {
+  const location = useLocation();
+  const from =
+    (location.state as { from?: Location })?.from?.pathname ||
+    "/ccpedigree-rebuild"; // Default to home page if no state is provided
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +23,7 @@ export const LoginPage = () => {
     } else {
       // Simulate successful login
       login(email);
-      navigate("../"); // Redirect to home page after login
+      navigate(from, { replace: true }); // Redirect to home page after login
     }
   };
 

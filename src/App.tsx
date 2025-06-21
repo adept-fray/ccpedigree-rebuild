@@ -8,10 +8,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          {/* Add more routes as needed */}
+          <Route path="/ccpedigree-rebuild">
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            {/* Add more routes as needed */}
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

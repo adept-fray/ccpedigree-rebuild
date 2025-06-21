@@ -8,6 +8,7 @@ import { ListMyDogs } from "./pages/ListMyDogs";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { EditDog } from "./pages/EditDog";
 import { DeleteDog } from "./pages/DeleteDog";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
               }
             />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

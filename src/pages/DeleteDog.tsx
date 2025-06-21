@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 export const DeleteDog = () => {
   const navigate = useNavigate();
   const params = useParams<{ id: string }>();
+  const [dogToDelete, setDogToDelete] = useState(false);
   const [dog, setDog] = useState<any>({
     id: "",
     name: "",
@@ -35,7 +36,7 @@ export const DeleteDog = () => {
     <div>
       <p>Are you sure you want to delete the dog with ID: {params.id}?</p>
       <h2>Delete Dog</h2>
-      <form onSubmit={handleSubmit}>
+      <form id="deleteform" onSubmit={handleSubmit}>
         <input type="text" placeholder="Dog's ID" value={params.id} readOnly />
         <br />
         <input
@@ -66,10 +67,22 @@ export const DeleteDog = () => {
           rows={4}
         />
         <br />
-        <button type="submit">Confirm Delete</button>
+        <button type="button" onClick={() => setDogToDelete(true)}>
+          Delete
+        </button>
         <button type="button" onClick={() => navigate("../my-dogs")}>
           Cancel
         </button>
+
+        {dogToDelete && (
+          <div className="modal">
+            <p>Are you sure you want to delete 🐶</p>
+            <button type="submit" form="deleteform">
+              Confirm Delete
+            </button>
+            <button onClick={() => setDogToDelete(false)}>Cancel</button>
+          </div>
+        )}
       </form>
     </div>
   );

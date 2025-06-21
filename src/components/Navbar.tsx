@@ -9,6 +9,8 @@ export const Navbar = () => {
       {user ? (
         <>
           <span>Welcome, {user.email}</span>
+          <Link to="/ccpedigree-rebuild/add-dog">Add Dog</Link>
+          <Link to="/ccpedigree-rebuild/my-dogs">My Dogs</Link>
           <button onClick={logout}>Log Out</button>
         </>
       ) : (

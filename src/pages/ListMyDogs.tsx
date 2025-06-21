@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/authContext";
+import { Link } from "react-router";
 
 export const ListMyDogs = () => {
   const { user } = useAuth();
@@ -22,10 +23,17 @@ export const ListMyDogs = () => {
         <ul>
           {dogs.map((dog: any, index: number) => (
             <li key={index}>
-              <strong>Name:</strong> {dog.name} <br />
-              <strong>Breed:</strong> {dog.breed} <br />
-              <strong>Birthday:</strong> {dog.birthday} <br />
-              <strong>Notes:</strong> {dog.notes}
+              <div>
+                <strong>Id:</strong> {dog.id} <br />
+                <strong>Name:</strong> {dog.name} <br />
+                <strong>Breed:</strong> {dog.breed} <br />
+                <strong>Birthday:</strong> {dog.birthday} <br />
+                <strong>Notes:</strong> {dog.notes}
+              </div>
+              <div>
+                <Link to={`../edit-dog/${dog.id}`}>Edit</Link>
+                <Link to={`../delete-dog/${dog.id}`}>Delete</Link>
+              </div>
             </li>
           ))}
         </ul>

@@ -6,6 +6,8 @@ import { Navbar } from "./components/Navbar";
 import { DogFormPage } from "./pages/DogFormPage";
 import { ListMyDogs } from "./pages/ListMyDogs";
 import { ProtectedRoute } from "./routes/protectedRoute";
+import { EditDog } from "./pages/EditDog";
+import { DeleteDog } from "./pages/DeleteDog";
 
 function App() {
   return (
@@ -30,6 +32,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ListMyDogs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="edit-dog/:id"
+              element={
+                <ProtectedRoute>
+                  <EditDog />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="delete-dog/:id"
+              element={
+                <ProtectedRoute>
+                  <DeleteDog />
                 </ProtectedRoute>
               }
             />

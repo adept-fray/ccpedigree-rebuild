@@ -19,6 +19,7 @@ export const DogFormPage = () => {
     }
 
     const newDog = {
+      id: crypto.randomUUID(), // Generate a unique ID for the dog
       name,
       breed,
       birthday,

@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import { Navbar } from "./components/Navbar";
 import { DogFormPage } from "./pages/DogFormPage";
 import { ListMyDogs } from "./pages/ListMyDogs";
-import { ProtectedRoute } from "./routes/protectedRoute";
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { EditDog } from "./pages/EditDog";
 import { DeleteDog } from "./pages/DeleteDog";
 

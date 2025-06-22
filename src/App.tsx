@@ -2,7 +2,6 @@ import { Routes, Route, BrowserRouter } from "react-router";
 import { LoginPage } from "./pages/LoginPage";
 import { SignUpPage } from "./pages/SignUpPage";
 import HomePage from "./pages/HomePage";
-import { Navbar } from "./components/Navbar";
 import { DogFormPage } from "./pages/DogFormPage";
 import { ListMyDogs } from "./pages/ListMyDogs";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
@@ -17,7 +16,6 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <Navbar />
         <Routes>
           <Route path="ccpedigree-rebuild">
             <Route index element={<HomePage />} />

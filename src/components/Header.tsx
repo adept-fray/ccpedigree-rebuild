@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { MobileNavigation } from "./MobileNavigation";
 
@@ -10,8 +11,12 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex justify-between bg-blue-500 text-white p-4">
-      <h1>Dog Management System</h1>
+    <header className="flex justify-between align-center bg-blue-500 text-white p-4">
+      <div className="flex">
+        <Link className="place-self-center" to="/ccpedigree-rebuild">
+          website logo text
+        </Link>
+      </div>
       <div
         className="md:hidden cursor-pointer hover:bg-gray-700 p-2 rounded"
         onClick={handleMenuToggle}

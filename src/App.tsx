@@ -10,11 +10,13 @@ import { EditDog } from "./pages/EditDog";
 import { DeleteDog } from "./pages/DeleteDog";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { AboutPage } from "./pages/AboutPage";
+import { Header } from "./components/Header";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Navbar />
         <Routes>
           <Route path="ccpedigree-rebuild">

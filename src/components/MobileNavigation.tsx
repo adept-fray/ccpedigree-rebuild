@@ -1,10 +1,12 @@
 import { Link } from "react-router";
+import { useAuth } from "../context/authContext";
 
 export const MobileNavigation = ({
   handleMenuToggle,
 }: {
   handleMenuToggle: any;
 }) => {
+  const { user, logout } = useAuth();
   return (
     <>
       {/* Mobile Navigation */}
@@ -14,7 +16,7 @@ export const MobileNavigation = ({
       >
         <ul>
           <li className="flex items-end justify-end py-2 pr-2">
-            <span className="cursor-pointer text-white hover:text-gray-800 py-4 px-6 bg-teal-600 hover:bg-teal-400 rounded">
+            <span className="cursor-pointer text-white hover:text-gray-800 py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -32,23 +34,60 @@ export const MobileNavigation = ({
             </span>
           </li>
           <li>
-            <Link to="/" className="py-4 px-6 bg-teal-600 rounded block">
+            <Link
+              to="/ccpedigree-rebuild/about"
+              className="py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+            >
               About
             </Link>
           </li>
-          <li>
-            <Link
-              to="/list-my-dogs"
-              className="py-4 px-6 bg-teal-600 rounded block"
-            >
-              My Dogs
-            </Link>
-          </li>
-          <li>
-            <Link to="/add-dog" className="py-4 px-6 bg-teal-600 rounded block">
-              Add Dog
-            </Link>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link
+                  to="/ccpedigree-rebuild/my-dogs"
+                  className="py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+                >
+                  My Dogs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ccpedigree-rebuild/add-dog"
+                  className="py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+                >
+                  Add Dog
+                </Link>
+              </li>
+              <li>
+                <button
+                  className="hover:underline py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+                  onClick={logout}
+                >
+                  Log Out
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link
+                  to="/ccpedigree-rebuild/login"
+                  className="py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+                >
+                  Log In
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ccpedigree-rebuild/signup"
+                  className="py-4 px-6 bg-teal-600 hover:bg-teal-400/60 rounded block"
+                >
+                  Sign Up
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </>

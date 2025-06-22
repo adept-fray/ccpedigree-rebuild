@@ -9,6 +9,7 @@ import { ProtectedRoute } from "./routes/ProtectedRoute";
 import { EditDog } from "./pages/EditDog";
 import { DeleteDog } from "./pages/DeleteDog";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { AboutPage } from "./pages/AboutPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="ccpedigree-rebuild">
             <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<SignUpPage />} />
             <Route
